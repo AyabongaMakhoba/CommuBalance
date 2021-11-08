@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Commu_balance.Models.Schedule>
+
+@{
+    ViewBag.Title = "DriversView";
+}
+<link href="@Url.Content("~/Content/StyleSheet2.css")" rel="stylesheet">
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        //Commu_balance.Models.ApplicationDbContext db = new Commu_balance.Models.ApplicationDbContext();
+        //var schdID = (from i in db.Schedules
+        //			  where i.Request_ID == item.Request_ID
+        //			  select i.Schedule_ID).FirstOrDefault();
+
+        //var sdate = (from i in db.Schedules
+        //			 where i.Request_ID == item.Request_ID
+        //			 select i.Schedule_Date).FirstOrDefault();
+
+        //var details = (from i in db.QRCodes
+        //			   where i.Schedule_ID == schdID
+        //			   select i.QRId).FirstOrDefault();
+
+        <div class="col-md-3">
+            <div class="box">
+            <div class="shadow p-3 mb-5 bg-white rounded">
+
+                <p>Request Number: @Html.DisplayFor(modelItem => item.Request_ID)</p>
+                <p>Client Name: @Html.DisplayFor(modelItem => item.Request.Profile.Profile_Name)</p>
+                <p>Delivery Address: @Html.DisplayFor(modelItem => item.Request.Profile.Profile_Address)</p>
+                <p>Request date: @Html.DisplayFor(modelItem => item.Request.Request_Date)</p>
+                <p>Schedule date: @Html.DisplayFor(modelItem => item.Schedule_Date)</p>
+
+
+                <div class="btn">
+                    <div>
+                        <a href="@Url.Action("Edit", "Requests", new { id = item.Request_ID})">
+
+                            <input type="submit" value="View Details" class="btn btn-success" />
+                        </a>
+                    </div>
+                </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    }
+</div>

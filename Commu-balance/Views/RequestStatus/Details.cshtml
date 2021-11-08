@@ -1,0 +1,26 @@
+﻿@model Commu_balance.Models.RequestStatus
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RequestStatus</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Request_Satus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Request_Satus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RequestStatus_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

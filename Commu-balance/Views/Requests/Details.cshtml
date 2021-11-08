@@ -1,0 +1,42 @@
+﻿@model Commu_balance.Models.Request
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Request</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Profile.User_IDNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profile.User_IDNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestStatus.Request_Satus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestStatus.Request_Satus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Request_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Request_Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Request_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

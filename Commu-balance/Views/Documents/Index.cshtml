@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Commu_balance.Models.Document>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Profile.User_IDNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Documents)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Proof_Of_Income)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Profile.User_IDNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Documents)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proof_Of_Income)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Documents_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Documents_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Documents_ID })
+        </td>
+    </tr>
+}
+
+</table>

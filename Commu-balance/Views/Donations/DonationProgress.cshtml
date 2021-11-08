@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Commu_balance.Models.Donation>
+
+@{
+	ViewBag.Title = "DonationProgress";
+}
+<h1>Donation Progress</h1>
+<hr />
+<div class="row">
+	@if (ViewBag.NumDonations >= ViewBag.NumRequests)
+	{
+
+		<div class="col-md-3">
+			<div class="shadow p-3 mb-5 bg-white rounded">
+				<h3>Requests</h3>
+				<h1><text> <span style="color: chartreuse;">@ViewBag.NumRequests</span> </text></h1>
+				<h6> The num...Keep up the good work. :)</h6>
+			</div>
+		</div>
+	}
+	else
+	{
+		<div class="col-md-3">
+			<div class="shadow p-3 mb-5 bg-white rounded">
+				<h3>Requests</h3>
+				<h1><text> <span style="color: red;">@ViewBag.NumRequests</span> </text></h1>
+				<h6> The donations so far can already cover the requests made for the current month...Please keep on donating so that we remain content with groceries to give :)</h6>
+			</div>
+		</div>
+	}
+
+	@if (ViewBag.NumDonations <= ViewBag.NumRequests)
+	{
+
+		<div class="col-md-3">
+			<div class="shadow p-3 mb-5 bg-white rounded">
+				<h3>Donations</h3>
+				<h1><text> <span style="color:red ;">@ViewBag.NumDonations</span> </text></h1>
+				<h6> The donations made is still lower than the number of requests made for the current month...Please keep on giving as much as you can :)</h6>
+			</div>
+		</div>
+	}
+	else
+	{
+		<div class="col-md-3">
+			<div class="shadow p-3 mb-5 bg-white rounded">
+				<h3>Donations</h3>
+				<h1><text> <span style="color: chartreuse ;">@ViewBag.NumDonations</span> </text></h1>
+				<h6> The donations made so far already satisfies our target for the current month...Please keep on donating to keep other souls going :)</h6>
+			</div>
+		</div>
+	}
+
+	@*<text> <span style="color:orange;">@Html.DisplayFor(modelItem => item.RequestStatus.Request_Satus)</span> </text>*@
+
+</div>
+
+<br />
+<div class="row">
+	<a href='@Url.Action("Create", "Donations")' class="btn btn-warning">Make donation</a>
+
+	@*<a href='@Url.Action("Edit", "Quotes", new { id = Model.Quote_ID }, null)' class="btn btn-warning">Edit</a>
+
+		<a href='@Url.Action("Delete", "Quotes", new { id = Model.Quote_ID }, null)' class="btn btn-secondary">Cancel</a>*@
+</div>
+<br />
+<br />
+
+<div>
+	@{
+		Html.RenderAction("PartialIndex", "Donations");
+	}
+</div>

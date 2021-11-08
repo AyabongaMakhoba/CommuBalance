@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Commu_balance.Models.Donation>
+
+<h2>Current Month Donations</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Profile.Profile_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Donation_Amt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Donation_Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Profile.Profile_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Donation_Amt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Donation_Date)
+        </td>
+    </tr>
+}
+
+</table>

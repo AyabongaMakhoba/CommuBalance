@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commu-balance", "Commu-balance\Commu-balance.csproj", "{980CB08F-6703-4939-A6F8-9F37FB5C0D96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commu-balance.Tests", "Commu-balance.Tests\Commu-balance.Tests.csproj", "{B7BC5937-DD32-462F-A910-86126EDA8D8F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{980CB08F-6703-4939-A6F8-9F37FB5C0D96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{980CB08F-6703-4939-A6F8-9F37FB5C0D96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{980CB08F-6703-4939-A6F8-9F37FB5C0D96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{980CB08F-6703-4939-A6F8-9F37FB5C0D96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7BC5937-DD32-462F-A910-86126EDA8D8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7BC5937-DD32-462F-A910-86126EDA8D8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7BC5937-DD32-462F-A910-86126EDA8D8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7BC5937-DD32-462F-A910-86126EDA8D8F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0977D72E-7C27-44E2-B011-C85FF57248DF}
+	EndGlobalSection
+EndGlobal

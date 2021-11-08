@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Commu_balance.Models.Request>
+
+<h2>Current Requests</h2>
+
+<br />
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Profile.Profile_Name)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.RequestStatus.Request_Satus)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Request_Date)
+		</th>
+		<th></th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Profile.Profile_Name)
+			</td>
+			<td>
+				@if (item.RequestStatus_ID == 1)
+				{
+					<text> <span style="color:red;"> @Html.DisplayFor(modelItem => item.RequestStatus.Request_Satus) </span> </text>
+				}
+
+				else
+				if (item.RequestStatus_ID == 2)
+				{
+					<text> <span style="color:orange;">@Html.DisplayFor(modelItem => item.RequestStatus.Request_Satus)</span> </text>
+				}
+
+				else
+				if (item.RequestStatus_ID == 3)
+				{
+					<text> <span style="color:darkorange;">@Html.DisplayFor(modelItem => item.RequestStatus.Request_Satus)</span> </text>
+				}
+
+				else
+				if (item.RequestStatus_ID == 4)
+				{
+					<text> <span style="color: darkgreen;">@Html.DisplayFor(modelItem => item.RequestStatus.Request_Satus)</span> </text>
+				}
+				else
+				{
+					<text> <span style="color:yellow;">@Html.DisplayFor(modelItem => item.RequestStatus.Request_Satus)</span> </text>
+				}
+
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Request_Date)
+			</td>
+		</tr>
+	}
+
+</table>

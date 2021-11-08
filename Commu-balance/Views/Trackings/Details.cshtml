@@ -1,0 +1,42 @@
+﻿@model Commu_balance.Models.Tracking
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tracking</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Delivery.Delivery_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Delivery.Delivery_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Track_Message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Track_Message)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Delivery_Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Delivery_Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Track_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Commu_balance.Models.Donation>
+
+@{
+    ViewBag.Title = "IndexAdmin";
+}
+
+<style>
+    .column {
+        float: left;
+        width: 33.33%;
+        padding: 5px;
+    }
+
+    /* Clear floats after image containers */
+    .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+</style>
+
+<div class="row">
+    <div class="column">
+        <div class="col-md-3">
+            <div class="shadow p-3 mb-5 bg-white rounded">
+                <img src="~/img/assign.jpg" width="300" height="300" />
+                <div class="btn">
+                    <div>
+                        <a href='@Url.Action("Index", "Requests")' class="btn btn-info">Approve Requests</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="col-md-3">
+            <div class="shadow p-3 mb-5 bg-white rounded">
+                <img src="~/img/S1.png" width="300" height="300" />
+                <div class="btn">
+                    <div>
+                        <a href='@Url.Action("Create", "Schedules")' class="btn btn-info">Schedule Requests</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

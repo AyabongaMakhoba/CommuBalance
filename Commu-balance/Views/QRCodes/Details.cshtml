@@ -1,0 +1,169 @@
+﻿@model Commu_balance.Models.QRCode
+
+@{
+	ViewBag.Title = "Details";
+}
+
+<h2>Track Your Order</h2>
+<style type="text/css">
+	.stepwizard-step p {
+		margin-top: 10px;
+	}
+
+	.stepwizard-row {
+		display: table-row;
+	}
+
+	.stepwizard {
+		display: table;
+		width: 100%;
+		position: relative;
+	}
+
+	.stepwizard-step button[disabled] {
+		opacity: 1 !important;
+		filter: alpha(opacity=100) !important;
+	}
+
+	.stepwizard-row:before {
+		top: 14px;
+		bottom: 0;
+		position: absolute;
+		content: " ";
+		width: 100%;
+		height: 1px;
+		background-color: #ccc;
+		z-order: 0;
+	}
+
+	.stepwizard-step {
+		display: table-cell;
+		text-align: center;
+		position: relative;
+	}
+
+	.btn-circle {
+		width: 30px;
+		height: 30px;
+		text-align: center;
+		padding: 6px 0;
+		font-size: 12px;
+		line-height: 1.428571429;
+		border-radius: 15px;
+	}
+	.circle {
+		background: lightblue;
+		border-radius: 50%;
+		width: 100px;
+		height: 100px;
+	}
+</style>
+
+<div>
+	<dd>
+		<div class="col-md-10">
+
+			@if (Model != null && !String.IsNullOrEmpty(Model.QRCodeImagePath))
+			{
+			<center>
+				<img src="@Url.Content(Model.QRCodeImagePath)" alt="Image" height="250" width="250" />
+			</center>
+			}
+
+		</div>
+	</dd>
+
+</div>
+
+<div class="row">
+	<div class="stepwizard">
+		<div class="stepwizard-row">
+
+			<div class="stepwizard-step">
+				@if (Model.Schedule.Request.RequestStatus.Request_Satus.ToLower().Contains("Pending".ToLower()))
+				{
+
+					<button type="button" class="btn btn-success btn-circle">1</button>
+				}
+				else
+				{
+					<button type="button" class="btn btn-default btn-circle">1</button>
+				}
+				<p>Request Pending</p>
+			</div>
+			<div class="stepwizard-step">
+				@if (Model.Schedule.Request.RequestStatus.Request_Satus.ToLower().Contains("Approved".ToLower()))
+				{
+					<button type="button" class="btn btn-success btn-circle">2</button>
+				}
+				else
+				{
+					<button type="button" class="btn btn-danger btn-circle">2</button>
+				}
+				<p> Request Approved </p>
+			</div>
+			<div class="stepwizard-step">
+				@if (Model.Schedule.Request.RequestStatus.Request_Satus.ToLower().Contains("Assigned".ToLower()))
+				{
+					<button type="button" class="btn btn-success btn-circle">3</button>
+				}
+				else
+				{
+					<button type="button" class="btn btn-danger btn-circle">3</button>
+				}
+				<p> Packaged For Delivery </p>
+			</div>
+			<div class="stepwizard-step">
+				@if (Model.Schedule.Request.RequestStatus.Request_Satus.ToLower().Contains("En route for delivery".ToLower()))
+				{
+					<button type="button" class="btn btn-success btn-circle">4</button>
+				}
+				else
+				{
+					<button type="button" class="btn btn-danger btn-circle">4</button>
+				}
+				<p>En route for delivery</p>
+			</div>
+			<div class="stepwizard-step">
+				@if (Model.Schedule.Request.RequestStatus.Request_Satus.ToLower().Contains("Delivered".ToLower()))
+				{
+					<button type="button" class="btn btn-success btn-circle">5</button>
+				}
+				else
+				{
+					<button type="button" class="btn btn-danger btn-circle">5</button>
+				}
+				<p>Delivered</p>
+			</div>
+		</div>
+	</div>
+</div>
+<br />
+<hr />
+<br />
+
+	<h2>Driver Info.</h2>
+<br />
+<div class="row">
+	@if (Model.Schedule.Driver.Diver_Image != null)
+	{
+		var base64 = Convert.ToBase64String(Model.Schedule.Driver.Diver_Image);
+		var ImgSource = string.Format("data:image/gif;base64,{0}", base64);
+
+		<img class="card-img-top" src="@ImgSource" alt="Card image" width="250" height="250" />
+	}
+	<div class="col-md-3">
+		<div class="shadow p-3 mb-5 bg-white rounded">
+			<div class="card" style="width:250px">
+			
+						<div class="card-body">
+							<p class="card-text">@Html.DisplayFor(modelItem => Model.Schedule.Driver.Driver_Name)</p>
+							<p class="card-text">@Html.DisplayFor(modelItem => Model.Schedule.Driver.Driver_Surname)</p>
+							<p class="card-text">@Html.DisplayFor(modelItem => Model.Schedule.Driver.Driver_Address)</p>
+							<p class="card-text">@Html.DisplayFor(modelItem => Model.Schedule.Driver.Driver_Email)</p>
+							<p class="card-text">@Html.DisplayFor(modelItem => Model.Schedule.Driver.Driver_CellNo)</p>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
